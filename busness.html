@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Joking Web — Création de sites web en RDC</title>
+    <meta name="description" content="Joking Web crée des sites web modernes, rapides et adaptés aux entreprises en RDC.">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+    
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(8, 8, 8, 0.9);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid #222;
+}
+
+.logo,
+.footer-logo {
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.logo span,
+.footer-logo span {
+    color: #00ff88;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav a {
+    color: #aaa;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: #00ff88;
+}
+
+.menu-btn {
+    display: none;
+
+    border: none;
+    background: none;
+
+    color: white;
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+
+.hero {
+    min-height: calc(100vh - 75px);
+
+    padding: 80px 7%;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 70px;
+
+    background:
+        radial-gradient(circle at 20% 30%, #003d25 0, transparent 30%),
+        #080808;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    border: 1px solid #164b35;
+    border-radius: 30px;
+
+    color: #00ff88;
+    background: #07150f;
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    max-width: 700px;
+
+    font-size: clamp(45px, 6vw, 80px);
+    line-height: 1.05;
+
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    color: #00ff88;
+}
+
+.hero-content > p {
+    max-width: 620px;
+
+    margin: 25px 0;
+
+    color: #aaa;
+    font-size: 18px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 24px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.primary {
+    background: #00ff88;
+    color: #000;
+}
+
+.secondary {
+    border: 1px solid #333;
+    color: white;
+}
+
+.secondary:hover {
+    border-color: #00ff88;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 45px;
+
+    margin-top: 55px;
+}
+
+.hero-stats div {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-stats strong {
+    font-size: 25px;
+}
+
+.hero-stats small {
+    color: #777;
+}
+
+
+
+.hero-card {
+    perspective: 1000px;
+}
+
+.browser {
+    overflow: hidden;
+
+    border: 1px solid #333;
+    border-radius: 18px;
+
+    background: #111;
+
+    box-shadow:
+        0 30px 80px rgba(0, 255, 136, 0.12);
+
+    transform: rotateY(-7deg);
+    transition: 0.5s;
+}
+
+.browser:hover {
+    transform: rotateY(0);
+}
+
+.browser-top {
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 15px;
+
+    border-bottom: 1px solid #292929;
+}
+
+.dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dots i {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #555;
+}
+
+.address {
+    margin: auto;
+
+    padding: 5px 35px;
+
+    border-radius: 5px;
+
+    background: #1c1c1c;
+
+    color: #777;
+
+    font-size: 11px;
+}
+
+.browser-content {
+    min-height: 380px;
+
+    padding: 50px 35px;
+
+    background:
+        radial-gradient(circle at 80% 20%, #004c2e, transparent 30%),
+        #0c0c0c;
+}
+
+.mini-logo {
+    color: #00ff88;
+    font-weight: bold;
+}
+
+.browser-content h3 {
+    margin-top: 60px;
+
+    font-size: 35px;
+    line-height: 1.1;
+}
+
+.browser-content h3 span {
+    color: #00ff88;
+}
+
+.browser-content p {
+    margin: 15px 0;
+
+    color: #999;
+}
+
+.browser-content button {
+    margin-top: 15px;
+
+    padding: 11px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #00ff88;
+}
+
+
+
+.section {
+    padding: 110px 7%;
+}
+
+.section-title {
+    max-width: 700px;
+
+    margin: 0 auto 60px;
+
+    text-align: center;
+}
+
+.section-title > span,
+.why-content > span,
+.contact-content > span {
+    color: #00ff88;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.section-title h2,
+.why-content h2,
+.contact-content h2 {
+    margin: 12px 0;
+
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.1;
+}
+
+.section-title p,
+.why-content p,
+.contact-content p {
+    color: #888;
+}
+
+
+
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.card {
+    padding: 30px;
+
+    background: #101010;
+
+    border: 1px solid #222;
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color: #00ff88;
+}
+
+.icon {
+    width: 55px;
+    height: 55px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 12px;
+
+    background: #0c2a1d;
+
+    font-size: 25px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #777;
+    font-size: 14px;
+}
+
+
+
+.pricing-section {
+    background: #0b0b0b;
+}
+
+.pricing {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.price-card {
+    position: relative;
+
+    padding: 35px;
+
+    border: 1px solid #292929;
+    border-radius: 18px;
+
+    background: #111;
+}
+
+.price-card.popular {
+    border-color: #00ff88;
+
+    transform: scale(1.04);
+
+    box-shadow: 0 20px 60px rgba(0, 255, 136, 0.08);
+}
+
+.popular-label {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: #00ff88;
+    color: #000;
+
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.price {
+    margin: 20px 0;
+}
+
+.price strong {
+    font-size: 45px;
+}
+
+.price span {
+    color: #777;
+}
+
+.description {
+    min-height: 70px;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+.price-card ul {
+    list-style: none;
+
+    margin: 25px 0;
+}
+
+.price-card li {
+    margin: 12px 0;
+
+    color: #ccc;
+
+    font-size: 14px;
+}
+
+.price-btn {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #333;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.price-btn:hover {
+    background: #00ff88;
+    color: #000;
+}
+
+.popular .price-btn {
+    background: #00ff88;
+    color: #000;
+}
+
+.pricing-note {
+    margin-top: 40px;
+
+    text-align: center;
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.project {
+    overflow: hidden;
+
+    border: 1px solid #222;
+    border-radius: 15px;
+
+    background: #101010;
+
+    transition: 0.3s;
+}
+
+.project:hover {
+    transform: translateY(-7px);
+}
+
+.project-image {
+    height: 220px;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 80px;
+}
+
+.childcare {
+    background: linear-gradient(135deg, #142d20, #111);
+}
+
+.restaurant {
+    background: linear-gradient(135deg, #332517, #111);
+}
+
+.barber {
+    background: linear-gradient(135deg, #252525, #111);
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info span {
+    color: #00ff88;
+
+    font-size: 12px;
+}
+
+.project-info h3 {
+    margin: 7px 0;
+}
+
+.project-info p {
+    color: #777;
+
+    font-size: 14px;
+}
+
+.demo-note {
+    margin-top: 30px;
+
+    text-align: center;
+
+    color: #555;
+
+    font-size: 12px;
+}
+
+
+
+.why {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+
+    gap: 80px;
+
+    background: #0b0b0b;
+}
+
+.advantages {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.advantages div {
+    padding: 25px;
+
+    border: 1px solid #222;
+    border-radius: 12px;
+
+    background: #111;
+}
+
+.advantages b {
+    font-size: 25px;
+}
+
+.advantages h3 {
+    margin: 10px 0 5px;
+}
+
+.advantages p {
+    color: #777;
+    font-size: 13px;
+}
+
+
+
+
+.faq-container {
+    max-width: 800px;
+
+    margin: auto;
+}
+
+.faq-item {
+    margin-bottom: 10px;
+
+    border: 1px solid #222;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.faq-item button {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    border: none;
+
+    background: #111;
+
+    color: white;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+.faq-item button span {
+    color: #00ff88;
+    font-size: 20px;
+}
+
+.faq-answer {
+    max-height: 0;
+
+    overflow: hidden;
+
+    padding: 0 20px;
+
+    background: #0e0e0e;
+
+    color: #888;
+
+    transition: 0.3s;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+
+    padding: 20px;
+}
+
+.faq-item.active button span {
+    transform: rotate(45deg);
+}
+
+
+
+
+.contact {
+    padding: 120px 7%;
+
+    text-align: center;
+
+    background:
+        radial-gradient(circle, #003d25, transparent 55%),
+        #080808;
+}
+
+.contact-content {
+    max-width: 700px;
+
+    margin: auto;
+}
+
+.contact-content p {
+    margin-bottom: 30px;
+}
+
+.whatsapp {
+    background: #00ff88;
+    color: #000;
+}
+
+
+footer {
+    padding: 45px 7%;
+
+    border-top: 1px solid #222;
+
+    text-align: center;
+
+    background: #050505;
+}
+
+footer p {
+    margin-top: 10px;
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+.copyright {
+    margin-top: 25px;
+}
+
+
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: none;
+    place-items: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal.show {
+    display: grid;
+}
+
+.modal-content {
+    position: relative;
+
+    max-width: 450px;
+
+    padding: 40px;
+
+    border: 1px solid #333;
+    border-radius: 18px;
+
+    background: #111;
+
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: #888;
+
+    margin: 10px 0;
+}
+
+.modal-content strong {
+    display: block;
+
+    margin: 20px 0;
+
+    color: #00ff88;
+
+    font-size: 25px;
+}
+
+.close-modal {
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    border: none;
+    background: none;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+
+
+@media (max-width: 900px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 60px;
+    }
+
+    .hero-card {
+        max-width: 600px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pricing {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .price-card.popular {
+        transform: none;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .why {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .header {
+        padding: 0 5%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav {
+        position: absolute;
+
+        top: 75px;
+        left: 0;
+        right: 0;
+
+        display: none;
+        flex-direction: column;
+
+        padding: 20px;
+
+        background: #0b0b0b;
+
+        border-bottom: 1px solid #222;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero-content > p {
+        font-size: 16px;
+    }
+
+    .hero-stats {
+        gap: 20px;
+    }
+
+    .section {
+        padding: 80px 5%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .advantages {
+        grid-template-columns: 1fr;
+    }
+
+    .browser-content {
+        min-height: 300px;
+        padding: 30px 20px;
+    }
+
+    .browser-content h3 {
+        margin-top: 40px;
+        font-size: 28px;
+    }
+
+    .modal-content {
+        padding: 30px 20px;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+
+  
+
+    <header class="header">
+
+        <a href="#accueil" class="logo">
+            Joking<span>Web</span>
+        </a>
+
+        <nav class="nav" id="nav">
+            <a href="#accueil">Accueil</a>
+            <a href="#services">Services</a>
+            <a href="#tarifs">Tarifs</a>
+            <a href="#projets">Projets</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+    </header>
+
+
+
+    <main>
+
+        <section class="hero" id="accueil">
+
+            <div class="hero-content">
+
+                <div class="badge">
+                    🇨🇩 Création web en RDC
+                </div>
+
+                <h1>
+                    Votre entreprise mérite
+                    <span>d'être visible.</span>
+                </h1>
+
+                <p>
+                    Nous créons des sites web modernes, rapides et
+                    adaptés aux smartphones pour aider les entreprises
+                    à développer leur présence en ligne.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#tarifs" class="btn primary">
+                        Voir les offres
+                    </a>
+
+                    <a href="#projets" class="btn secondary">
+                        Voir nos projets
+                    </a>
+
+                </div>
+
+                <div class="hero-stats">
+
+                    <div>
+                        <strong>100%</strong>
+                        <small>Responsive</small>
+                    </div>
+
+                    <div>
+                        <strong>24/7</strong>
+                        <small>Votre site en ligne</small>
+                    </div>
+
+                    <div>
+                        <strong>RDC</strong>
+                        <small>Service local</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <div class="browser">
+
+                    <div class="browser-top">
+                        <div class="dots">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </div>
+
+                        <div class="address">
+                            votreentreprise.cd
+                        </div>
+                    </div>
+
+                    <div class="browser-content">
+
+                        <div class="mini-logo">
+                            Votre Entreprise
+                        </div>
+
+                        <h3>
+                            Développez votre
+                            <span>présence en ligne.</span>
+                        </h3>
+
+                        <p>
+                            Un site professionnel pour attirer
+                            plus de clients.
+                        </p>
+
+                        <button>
+                            Nous contacter
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        
+
+        <section class="section" id="services">
+
+            <div class="section-title">
+
+                <span>CE QUE NOUS FAISONS</span>
+
+                <h2>
+                    Des solutions simples
+                    pour votre entreprise.
+                </h2>
+
+                <p>
+                    Pas besoin d'une application compliquée.
+                    Nous créons ce dont votre entreprise a réellement besoin.
+                </p>
+
+            </div>
+
+
+            <div class="cards">
+
+                <article class="card">
+
+                    <div class="icon">🌐</div>
+
+                    <h3>Site vitrine</h3>
+
+                    <p>
+                        Présentez votre entreprise, vos services,
+                        vos produits et vos coordonnées.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="icon">📱</div>
+
+                    <h3>Design mobile</h3>
+
+                    <p>
+                        Votre site s'adapte parfaitement aux
+                        smartphones, tablettes et ordinateurs.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="icon">⚡</div>
+
+                    <h3>Site rapide</h3>
+
+                    <p>
+                        Des pages légères et rapides pour offrir
+                        une bonne expérience à vos visiteurs.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="icon">🔧</div>
+
+                    <h3>Maintenance</h3>
+
+                    <p>
+                        Nous pouvons modifier vos informations,
+                        images et contenus chaque mois.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+      
+
+        <section class="section pricing-section" id="tarifs">
+
+            <div class="section-title">
+
+                <span>NOS OFFRES</span>
+
+                <h2>
+                    Choisissez votre formule.
+                </h2>
+
+                <p>
+                    Des prix simples avec un abonnement mensuel
+                    pour maintenir votre site à jour.
+                </p>
+
+            </div>
+
+
+            <div class="pricing">
+
+
+                <!-- BASIC -->
+
+                <article class="price-card">
+
+                    <h3>Basic</h3>
+
+                    <p class="price">
+                        <strong>10$</strong>
+                        <span>/ mois</span>
+                    </p>
+
+                    <p class="description">
+                        Pour les petites entreprises qui veulent
+                        simplement être présentes sur Internet.
+                    </p>
+
+                    <ul>
+
+                        <li>✓ Site vitrine</li>
+                        <li>✓ Design responsive</li>
+                        <li>✓ Hébergement</li>
+                        <li>✓ Maintenance</li>
+                        <li>✓ 1 modification / mois</li>
+
+                    </ul>
+
+                    <button
+                        class="price-btn"
+                        data-plan="Basic - 10$/mois">
+                        Choisir Basic
+                    </button>
+
+                </article>
+
+
+                <!-- PRO -->
+
+                <article class="price-card popular">
+
+                    <div class="popular-label">
+                        ⭐ POPULAIRE
+                    </div>
+
+                    <h3>Pro</h3>
+
+                    <p class="price">
+                        <strong>20$</strong>
+                        <span>/ mois</span>
+                    </p>
+
+                    <p class="description">
+                        Pour les entreprises qui veulent une
+                        présence professionnelle.
+                    </p>
+
+                    <ul>
+
+                        <li>✓ Tout le forfait Basic</li>
+                        <li>✓ WhatsApp intégré</li>
+                        <li>✓ Galerie photos</li>
+                        <li>✓ Jusqu'à 3 modifications / mois</li>
+                        <li>✓ Support personnalisé</li>
+
+                    </ul>
+
+                    <button
+                        class="price-btn"
+                        data-plan="Pro - 20$/mois">
+                        Choisir Pro
+                    </button>
+
+                </article>
+
+
+                
+
+                <article class="price-card">
+
+                    <h3>Business</h3>
+
+                    <p class="price">
+                        <strong>35$</strong>
+                        <span>/ mois</span>
+                    </p>
+
+                    <p class="description">
+                        Pour les entreprises qui veulent un
+                        accompagnement plus complet.
+                    </p>
+
+                    <ul>
+
+                        <li>✓ Tout le forfait Pro</li>
+                        <li>✓ Modifications régulières</li>
+                        <li>✓ Priorité aux demandes</li>
+                        <li>✓ Optimisation du site</li>
+                        <li>✓ Support personnalisé</li>
+
+                    </ul>
+
+                    <button
+                        class="price-btn"
+                        data-plan="Business - 35$/mois">
+                        Choisir Business
+                    </button>
+
+                </article>
+
+            </div>
+
+
+            <p class="pricing-note">
+                💡 Les frais de création du site sont définis
+                selon les besoins de chaque entreprise.
+            </p>
+
+        </section>
+
+
+        <section class="section" id="projets">
+
+            <div class="section-title">
+
+                <span>NOS PROJETS</span>
+
+                <h2>
+                    Des exemples de sites.
+                </h2>
+
+                <p>
+                    Quelques concepts que nous pouvons créer
+                    pour différents types d'entreprises.
+                </p>
+
+            </div>
+
+
+            <div class="projects">
+
+
+                <article class="project">
+
+                    <div class="project-image childcare">
+                        👶
+                    </div>
+
+                    <div class="project-info">
+
+                        <span>Éducation</span>
+
+                        <h3>
+                            Encadrement d'enfants
+                        </h3>
+
+                        <p>
+                            Un site pour présenter les services,
+                            les activités et les informations
+                            de contact.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <div class="project-image restaurant">
+                        🍔
+                    </div>
+
+                    <div class="project-info">
+
+                        <span>Restaurant</span>
+
+                        <h3>
+                            Restaurant moderne
+                        </h3>
+
+                        <p>
+                            Menu, galerie, localisation et
+                            contact WhatsApp.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <div class="project-image barber">
+                        💈
+                    </div>
+
+                    <div class="project-info">
+
+                        <span>Beauté</span>
+
+                        <h3>
+                            Salon de coiffure
+                        </h3>
+
+                        <p>
+                            Présentation des services,
+                            tarifs et prise de contact.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <p class="demo-note">
+                * Les projets présentés ici sont des démonstrations.
+            </p>
+
+        </section>
+
+
+    
+
+        <section class="section why">
+
+            <div class="why-content">
+
+                <span>POURQUOI NOUS ?</span>
+
+                <h2>
+                    Un site pensé pour
+                    les entreprises locales.
+                </h2>
+
+                <p>
+                    Notre objectif est de rendre la création
+                    de sites web accessible aux petites et
+                    moyennes entreprises.
+                </p>
+
+            </div>
+
+
+            <div class="advantages">
+
+                <div>
+                    <b>🇨🇩</b>
+                    <h3>Service local</h3>
+                    <p>Une solution pensée pour la RDC.</p>
+                </div>
+
+                <div>
+                    <b>📱</b>
+                    <h3>Mobile First</h3>
+                    <p>Optimisé pour les smartphones.</p>
+                </div>
+
+                <div>
+                    <b>💰</b>
+                    <h3>Prix accessibles</h3>
+                    <p>Des formules adaptées aux petites entreprises.</p>
+                </div>
+
+                <div>
+                    <b>🛠️</b>
+                    <h3>Maintenance</h3>
+                    <p>Votre site peut évoluer avec votre entreprise.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        
+
+        <section class="section faq">
+
+            <div class="section-title">
+
+                <span>FAQ</span>
+
+                <h2>
+                    Questions fréquentes.
+                </h2>
+
+            </div>
+
+
+            <div class="faq-container">
+
+                <div class="faq-item">
+
+                    <button>
+                        Combien coûte la création d'un site ?
+                        <span>+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Le prix dépend du projet et des besoins
+                        de l'entreprise. Contactez-nous pour obtenir
+                        une estimation.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button>
+                        Dois-je payer tous les mois ?
+                        <span>+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        L'abonnement mensuel permet notamment de
+                        couvrir la maintenance, l'hébergement et
+                        les mises à jour prévues dans votre formule.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button>
+                        Le site fonctionne-t-il sur téléphone ?
+                        <span>+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Oui. Tous nos sites sont conçus pour être
+                        adaptés aux smartphones, tablettes et ordinateurs.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button>
+                        Comment vous contacter ?
+                        <span>+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Vous pouvez nous contacter directement
+                        via WhatsApp grâce au bouton présent sur le site.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="contact" id="contact">
+
+            <div class="contact-content">
+
+                <span>COMMENÇONS ENSEMBLE</span>
+
+                <h2>
+                    Prêt à créer votre site ?
+                </h2>
+
+                <p>
+                    Expliquez-nous votre projet et nous vous
+                    répondrons rapidement.
+                </p>
+
+                <a
+                    id="whatsappButton"
+                    class="btn whatsapp"
+                    href="#"
+                    target="_blank">
+
+                    💬 Contacter sur WhatsApp
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+   
+
+    <footer>
+
+        <div class="footer-logo">
+            Joking<span>Web</span>
+        </div>
+
+        <p>
+            Création de sites web pour entreprises en RDC.
+        </p>
+
+        <p class="copyright">
+            © <span id="year"></span> Joking Web. Tous droits réservés.
+        </p>
+
+    </footer>
+
+
+    <!-- MODAL -->
+
+    <div class="modal" id="modal">
+
+        <div class="modal-content">
+
+            <button class="close-modal" id="closeModal">
+                ×
+            </button>
+
+            <h2>
+                Excellent choix ! 🚀
+            </h2>
+
+            <p>
+                Vous avez choisi :
+            </p>
+
+            <strong id="selectedPlan">
+                Pro
+            </strong>
+
+            <p>
+                Cliquez sur le bouton ci-dessous pour
+                nous contacter sur WhatsApp.
+            </p>
+
+            <a
+                id="modalWhatsapp"
+                href="#"
+                target="_blank"
+                class="btn whatsapp">
+
+                💬 Continuer sur WhatsApp
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script>
+       
+
+const WHATSAPP_NUMBER = "243831799382";
+
+
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
+
+menuBtn.addEventListener("click", () => {
+    nav.classList.toggle("active");
+});
+
+
+
+document.querySelectorAll(".nav a").forEach(link => {
+
+    link.addEventListener("click", () => {
+        nav.classList.remove("active");
+    });
+
+});
+
+
+
+const whatsappButton =
+    document.getElementById("whatsappButton");
+
+const defaultMessage =
+    "Bonjour Joking Web 👋 Je voudrais créer un site web pour mon entreprise.";
+
+const whatsappURL =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(defaultMessage)}`;
+
+whatsappButton.href = whatsappURL;
+
+
+
+
+const modal = document.getElementById("modal");
+const closeModal = document.getElementById("closeModal");
+
+const selectedPlan =
+    document.getElementById("selectedPlan");
+
+const modalWhatsapp =
+    document.getElementById("modalWhatsapp");
+
+
+document.querySelectorAll(".price-btn").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const plan = button.dataset.plan;
+
+        selectedPlan.textContent = plan;
+
+        const message =
+            `Bonjour Joking Web 👋 Je suis intéressé par l'offre ${plan}. J'aimerais avoir plus d'informations.`;
+
+        modalWhatsapp.href =
+            `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+        modal.classList.add("show");
+
+    });
+
+});
+
+
+
+
+closeModal.addEventListener("click", () => {
+    modal.classList.remove("show");
+});
+
+
+
+
+modal.addEventListener("click", (event) => {
+
+    if (event.target === modal) {
+        modal.classList.remove("show");
+    }
+
+});
+
+
+
+const faqItems =
+    document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+
+    const button =
+        item.querySelector("button");
+
+    button.addEventListener("click", () => {
+
+        faqItems.forEach(otherItem => {
+
+            if (otherItem !== item) {
+                otherItem.classList.remove("active");
+            }
+
+        });
+
+        item.classList.toggle("active");
+
+    });
+
+});
+
+
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+    </script>
+
+</body>
+</html>
